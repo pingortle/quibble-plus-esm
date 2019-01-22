@@ -14,8 +14,7 @@ require('quibble').ignoreCallsFromThisFile(require.resolve('esm/esm'))
 ```
 
 ## Running
-- `npm i`
-- `npm test`
+`npm install && npm test`
 
 ### Expected output
 ```
