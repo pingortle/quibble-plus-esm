@@ -1,17 +1,14 @@
 # quibble :heart: esm
-
 This repo exists to
 - :thinking: minimally reproduce an error observed when using quibble with esm enabled.
-  - *It doesn't even use actual ES `import` syntax, because `require` works better for synchronous module loading in tests. However, the test cases show that esm is nevertheless showing up in the callstack*
 - :white_check_mark: demonstrate a workaround
 
 ## TL;DR
-
-The solution basically boils down to running this somewhere before your test suite. This *should* work with testdouble.js as well.
-
 ```js
 require('quibble').ignoreCallsFromThisFile(require.resolve('esm/esm'))
 ```
+
+The solution basically boils down to running this somewhere before your test suite. This *should* work with testdouble.js as well.
 
 ## Running
 - `npm install && npm test` - first time
@@ -57,3 +54,6 @@ AssertionError [ERR_ASSERTION]: Input A expected to strictly equal input B:
 - `index.js` contains the test cases.
 - `thrice.js` is the simple dependency we want to mock.
 - `wrapped-thrice.js` is the simple module that depends on `thrice`.
+
+## Extra Info
+These tests don't use actual ES `import` syntax, because `require` works better for synchronous module loading in tests. However, the test cases show that esm is nevertheless showing up in the callstack
