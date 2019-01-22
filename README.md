@@ -7,7 +7,7 @@ This repo exists to
 
 ## TL;DR
 
-The solution basically boils down to running this somewhere before your test suite.
+The solution basically boils down to running this somewhere before your test suite. This *should* work with testdouble.js as well.
 
 ```js
 require('quibble').ignoreCallsFromThisFile(require.resolve('esm/esm'))
