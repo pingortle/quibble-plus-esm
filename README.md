@@ -1,8 +1,17 @@
 # quibble :heart: esm
 
 This repo exists to
-- :thinking: Reproduce an error observed when using quibble with esm dependencies.
-- :white_check_mark: Demonstrate a workaround
+- :thinking: minimally reproduce an error observed when using quibble with esm enabled.
+  - *It doesn't even use actual ES `import` syntax, because `require` works better for synchronous module loading in tests. However, the test cases show that esm is nevertheless showing up in the callstack*
+- :white_check_mark: demonstrate a workaround
+
+## TL;DR
+
+The solution basically boils down to running this somewhere before your test suite.
+
+```js
+require('quibble').ignoreCallsFromThisFile(require.resolve('esm/esm'))
+```
 
 ## Running
 - `npm i`
