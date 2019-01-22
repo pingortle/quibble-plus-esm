@@ -14,7 +14,10 @@ require('quibble').ignoreCallsFromThisFile(require.resolve('esm/esm'))
 ```
 
 ## Running
-`npm install && npm test`
+- `npm install && npm test` - first time
+- More options
+  - `npm run test:cjs` - runs the suite in CommonJS mode
+  - `npm run test:esm` - runs the suite with esm enabled (e.g. with the `-r esm` flag)
 
 ### Expected output
 ```
